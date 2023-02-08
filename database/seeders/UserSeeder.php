@@ -18,8 +18,8 @@ class UserSeeder extends Seeder
     public function run()
     {
         $admin = User::factory()->create([
-            'name' => 'Quezia',
-            'email' => 'quezia@gmail.com',
+            'name' => 'Admin',
+            'email' => 'admin@gmail.com',
             'password' => Hash::make('12345678'),
             'type' => 1
         ]);
