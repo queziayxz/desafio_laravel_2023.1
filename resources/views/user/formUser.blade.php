@@ -1,5 +1,4 @@
 
-        <h2 class="text-center mt-2 mb-2">Cadastrando Funcionário</h2>
         <!-- Email Address -->
         <div>
                 <x-input-label for="name" :value="__('Nome')" />
