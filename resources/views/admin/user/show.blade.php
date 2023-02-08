@@ -6,7 +6,7 @@
     </x-slot>
 
     <x-card>
-        @include('user.formUser')
+        @include('admin.user.formUser')
     </x-card>
 
 </x-app-layout>
