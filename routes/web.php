@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+//FUNCIONÁRIOS
 Route::get('/funcionarios',[UserController::class, 'index'])->name('user.index');
 Route::get('/funcionarios/create',[UserController::class, 'create'])->name('user.create');
 Route::post('/funcionarios',[UserController::class, 'store'])->name('user.store');
@@ -36,5 +38,14 @@ Route::get('/funcionarios/{user}',[UserController::class, 'show'])->name('user.s
 Route::get('/funcionarios/{user}/edit',[UserController::class, 'edit'])->name('user.edit');
 Route::put('/funcionarios/{user}',[UserController::class, 'update'])->name('user.update');
 Route::delete('/funcionarios/{user}',[UserController::class, 'destroy'])->name('user.destroy');
+
+//ALUNOS
+Route::get('/alunos',[StudentController::class, 'index'])->name('student.index');
+Route::get('/alunos/create',[StudentController::class, 'create'])->name('student.create');
+Route::post('/alunos',[StudentController::class, 'store'])->name('student.store');
+Route::get('/alunos/{student}',[StudentController::class, 'show'])->name('student.show');
+Route::get('/alunos/{student}/edit',[StudentController::class, 'edit'])->name('student.edit');
+Route::put('/alunos/{student}',[UserContStudentControllerroller::class, 'update'])->name('student.update');
+Route::delete('/alunos/{student}',[StudentController::class, 'destroy'])->name('student.destroy');
 
 require __DIR__.'/auth.php';
