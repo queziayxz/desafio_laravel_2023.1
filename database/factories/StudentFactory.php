@@ -17,7 +17,14 @@ class StudentFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => fake()->name(),
+            'email' => fake()->unique()->safeEmail(),
+            'birth_date' => fake()->date($format = 'Y-m-d', $max = 'now'),
+            'address' => fake()->address(),
+            'phone_number' => fake()->phoneNumber(),
+            'register_date' => fake()->date($format = 'Y-m-d', $max = 'now'),
+            'pay_day' => fake()->date($format = 'Y-m-d', $max = 'now'),
+            'expiration_date' => fake()->date($format = 'Y-m-d', $max = 'now')
         ];
     }
 }
