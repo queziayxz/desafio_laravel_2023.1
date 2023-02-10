@@ -7,6 +7,11 @@
     </x-slot>
 
     <x-card>
+
+        <a href="{{ route('student.create') }}">
+            <x-secondary-button class="btn-secondary">{{ __('Adiconar Aluno') }}</x-secondary-button> 
+        </a>
+
         <table class="table">
             <thead>
                 <tr>
@@ -21,7 +26,7 @@
                     <tr>
                         <td>{{ $student->name }}</td>
                         <td>{{ $student->email }}</td>
-                        <td>{{ $student->register_date }}</td>
+                        <td>{{ date('d/m/Y',strtotime($student->register_date))}}</td>
                         <td class="d-flex  justify-content-evenly">
                             <a href="{{ route('student.show',$student->id) }}">
                                 <x-secondary-button class="btn-secondary"><i class="fas fa-search"></i></x-secondary-button>

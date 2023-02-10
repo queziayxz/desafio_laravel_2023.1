@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Student;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Date;
 
 class StudentController extends Controller
 {
@@ -26,7 +27,8 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        $student = new Student();
+        return view('admin.student.create',compact('student'));
     }
 
     /**
@@ -37,7 +39,13 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $expiration_date = new Date();
+        $data['expiration_date'] = date('Y-m-d',strtotime($data['expiration_date'],strtotime($data['pay_day'])));
+        Student::create($data);
+
+        return redirect()->route('student.index');
+
     }
 
     /**
