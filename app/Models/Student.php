@@ -21,9 +21,9 @@ class Student extends Model
     ];
 
     const validades = [
-        'dia' => 'Dia',
-        'semana' => 'Semana',
-        'mes' => 'Mês'
+        'day' => 'Dia',
+        'week' => 'Semana',
+        'month' => 'Mês'
     ];
 
 }

@@ -40,11 +40,16 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        dd($request->all());
 
-        //Student::create($data);
+        foreach(Student::validades as $chave => $validade) {
+            if($validade === $data['expiration_date']) {
+                $data['expiration_date'] = date('Y-m-d',strtotime("+1 $chave",strtotime($data['pay_day'])));
+            }
+        }
 
-        //return redirect()->route('student.index');
+        Student::create($data);
+
+        return redirect()->route('student.index');
 
     }
 
