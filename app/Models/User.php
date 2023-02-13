@@ -58,4 +58,9 @@ class User extends Authenticatable
         'tarde' => 'Tarde',
         'noite' => 'Noite',
     ];
+
+    public function trainings()
+    {
+        return $this->hasMany(Training::class);
+    }
 }
