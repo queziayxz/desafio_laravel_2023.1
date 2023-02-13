@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -47,5 +48,14 @@ Route::get('/alunos/{student}',[StudentController::class, 'show'])->name('studen
 Route::get('/alunos/{student}/edit',[StudentController::class, 'edit'])->name('student.edit');
 Route::put('/alunos/{student}',[StudentController::class, 'update'])->name('student.update');
 Route::delete('/alunos/{student}',[StudentController::class, 'destroy'])->name('student.destroy');
+
+//AULAS
+Route::get('/aula',[TrainingController::class, 'index'])->name('training.index');
+Route::get('/aula/create',[TrainingController::class, 'create'])->name('training.create');
+Route::post('/aula',[TrainingController::class, 'store'])->name('training.store');
+Route::get('/aula/{training}',[TrainingController::class, 'show'])->name('training.show');
+Route::get('/aula/{training}/edit',[TrainingController::class, 'edit'])->name('training.edit');
+Route::put('/aula/{training}',[TrainingController::class, 'update'])->name('training.update');
+Route::delete('/aula/{training}',[TrainingController::class, 'destroy'])->name('training.destroy');
 
 require __DIR__.'/auth.php';
