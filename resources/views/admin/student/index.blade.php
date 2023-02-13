@@ -32,13 +32,13 @@
                             <a href="{{ route('student.edit',$student->id) }}">
                                 <x-primary-button class="btn-primary"><i class="fas fa-pen"></i></x-primary-button>
                             </a>
-                            <form action="{{ route('student.destroy', $student->id) }}" method="post">
+                            <x-form action="{{ route('student.destroy', $student->id) }}" method="POST">
                             
-                            @csrf
-                            @method('delete')
-                            <x-danger-button type="submit" class="btn-primary"><i class="fas fa-trash"></i></x-danger-button>
+                                @csrf
+                                @method('delete')
+                                <x-danger-button type="submit" class="btn-primary"><i class="fas fa-trash"></i></x-danger-button>
 
-                        </form>
+                        </x-form>
                         </td>
                     </tr>
                 @endforeach
