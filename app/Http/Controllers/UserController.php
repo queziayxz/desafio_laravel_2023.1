@@ -39,12 +39,11 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        $work_time = $data['work_time'];
+        $data['work_time'] = User::turnos[$work_time];
+        User::create($data);
 
-        $user = new User();
-        $user->type = 0;
-        $user->create($data);
-
-        return redirect()->route('admin.user.index');
+        return redirect()->route('user.index');
 
     }
 

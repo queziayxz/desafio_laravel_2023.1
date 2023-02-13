@@ -52,4 +52,10 @@ class User extends Authenticatable
     {
         $this->attributes['password'] = Hash::make($value);
     }
+
+    const turnos = [
+        'manha' => 'Manhã',
+        'tarde' => 'Tarde',
+        'noite' => 'Noite',
+    ];
 }

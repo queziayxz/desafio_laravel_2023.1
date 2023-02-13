@@ -40,8 +40,14 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        $expiration_date = new Date();
-        $data['expiration_date'] = date('Y-m-d',strtotime($data['expiration_date'],strtotime($data['pay_day'])));
+        if($data['expiration_date'][0] == 1) {
+            $data['expiration_date'] = date('Y-m-d',strtotime("+1 day",strtotime($data['pay_day'])));
+        } else if($data['expiration_date'][0] == 2) {
+            $data['expiration_date'] = date('Y-m-d',strtotime("+1 week",strtotime($data['pay_day'])));
+        } else {
+            $data['expiration_date'] = date('Y-m-d',strtotime("+1 month",strtotime($data['pay_day'])));
+        }
+
         Student::create($data);
 
         return redirect()->route('student.index');
@@ -67,7 +73,7 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        //
+        return view('admin.student.edit',compact('student'));
     }
 
     /**

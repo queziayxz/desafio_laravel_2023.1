@@ -49,19 +49,47 @@
         </div>
 
         <!-- DATA DE VALIDADE -->
+        <x-input-label for="expiration_date" class="mt-2" :value="__('Contrato do Aluno')" />
+        <select name="expiration_date[]" id="expiration_date" value="{{ json_encode(old('expiration_date', $student->pluck('id'))) }}">
+            <option value="" selected>Selecione uma validade</option>
+            <option {{ $student->id != null ? 'selected' : "" }} value="1">Dia</option>
+            <option {{ $student->id != null ? 'selected' : "" }} value="2">Semana</option>
+            <option {{ $student->id != null ? 'selected' : "" }} value="3">Mês</option>
+        </select>
+
+        <!--
         <div>
             <x-input-label for="expiration_date" class="mt-2" :value="__('Contrato do Aluno')" />
             <div class="d-flex justify-content-start align-items-center">
                 <x-input-label for="expiration_date" class="mt-2 mr-2" :value="__('Dia')" />
-                <x-text-input type="radio" id="expiration_date" class="form-check-input"  name="expiration_date" value="+1 day" required autofocus />
+                <x-text-input type="radio" id="expiration_date" class="form-check-input"  name="expiration_date[]" value="+1 day" required autofocus />
             </div>
             <div class="d-flex justify-content-start align-items-center">
                 <x-input-label for="expiration_date" class="mt-2 mr-2" :value="__('Mês')" />
-                <x-text-input type="radio" id="expiration_date" class="form-check-input"  name="expiration_date" value="+1 month" required autofocus />
+                <x-text-input type="radio" id="expiration_date" class="form-check-input"  name="expiration_date[]" value="+1 month" required autofocus />
             </div>
             <div class="d-flex justify-content-start align-items-center">
                 <x-input-label for="expiration_date" class="mt-2 mr-2" :value="__('Semana')" />
-                <x-text-input type="radio" id="expiration_date" class="form-check-input"  name="expiration_date" value="+1 week" required autofocus />
+                <x-text-input type="radio" id="expiration_date" class="form-check-input"  name="expiration_date[]" value="+1 week" required autofocus />
             </div>
             <x-input-error :messages="$errors->get('expiration_date')" class="mt-2" />
         </div>
+-->
+
+@push('js')
+<script>
+        function selectOption(id) {
+            const select = document.querySelector("#"+id);
+            const children = select.children;
+            for(let child of children) {
+                if(child.value === select.getAttribute("value")) {
+                    child.setAttribute("selected", true);
+                }
+            }
+        }
+
+        window.onload = () => {
+            selectOption("cargo_id");
+        }
+    </script>
+@endpush
