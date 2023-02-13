@@ -9,6 +9,14 @@ class Training extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'start_date',
+        'end_date',
+        'cost',
+        'user_id',
+        'student_id'
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);
