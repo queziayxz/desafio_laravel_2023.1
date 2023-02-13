@@ -26,4 +26,9 @@ class Student extends Model
         'month' => 'Mês'
     ];
 
+    public function trainings()
+    {
+        return $this->hasMany(Training::class);
+    }
+
 }
