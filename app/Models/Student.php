@@ -20,4 +20,10 @@ class Student extends Model
         'expiration_date'
     ];
 
+    const validades = [
+        'dia' => 'Dia',
+        'semana' => 'Semana',
+        'mes' => 'Mês'
+    ];
+
 }

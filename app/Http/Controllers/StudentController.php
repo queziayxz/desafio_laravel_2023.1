@@ -40,17 +40,11 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        if($data['expiration_date'][0] == 1) {
-            $data['expiration_date'] = date('Y-m-d',strtotime("+1 day",strtotime($data['pay_day'])));
-        } else if($data['expiration_date'][0] == 2) {
-            $data['expiration_date'] = date('Y-m-d',strtotime("+1 week",strtotime($data['pay_day'])));
-        } else {
-            $data['expiration_date'] = date('Y-m-d',strtotime("+1 month",strtotime($data['pay_day'])));
-        }
+        dd($request->all());
 
-        Student::create($data);
+        //Student::create($data);
 
-        return redirect()->route('student.index');
+        //return redirect()->route('student.index');
 
     }
 

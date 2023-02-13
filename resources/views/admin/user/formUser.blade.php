@@ -34,7 +34,7 @@
                 <x-input-label for="work_time" class="mt-2" :value="__('Turno do Funcionário')" />
                 <select name="work_time" id="work_time" value="{{ old('work_time', $user->work_time ?? null) }}">
                 <option value="">Selecione um Turno</option>
-                @foreach(App\Models\User::turnos as $chave => $turno)
+                @foreach(App\Models\User::turnos as $turno)
                         <option value="{{ $turno }}">{{ $turno }}</option>
                 @endforeach
                 </select>
