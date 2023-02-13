@@ -35,7 +35,7 @@
                 <select name="work_time" id="work_time" value="{{ old('work_time', $user->work_time ?? null) }}">
                 <option value="">Selecione um Turno</option>
                 @foreach(App\Models\User::turnos as $chave => $turno)
-                        <option value="{{ $chave }}">{{ $turno }}</option>
+                        <option value="{{ $turno }}">{{ $turno }}</option>
                 @endforeach
                 </select>
         </div>
@@ -47,3 +47,26 @@
         </div>
 
         <x-text-input type="number" id="type" name="type" hidden value="1"/>
+
+@push('js')
+
+        <script>
+                function ValorSelecionado(id)
+                {
+                        const select = document.querySelector('#'+id);
+                        const childrem = select.children;
+                        console.log(select.getAttribute('value'));
+                        for(let child of childrem){
+                                if(child.value == select.getAttribute("value")) {
+                                        child.setAttribute("selected", true);
+                                }
+                                
+                        }
+                }
+
+                window.onload = () => {
+                        ValorSelecionado('work_time')
+                }
+        </script>
+
+@endpush

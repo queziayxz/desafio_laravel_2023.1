@@ -11,6 +11,7 @@
     
             @method('PUT')
             @include('admin.user.formUser')
+            @stack('js')
             <div class="text-end mt-4">
                 <x-primary-button type="submit">Editar</x-primary-button>
             </div>

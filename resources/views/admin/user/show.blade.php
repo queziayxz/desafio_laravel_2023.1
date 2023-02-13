@@ -7,6 +7,7 @@
 
     <x-card>
         @include('admin.user.formUser')
+        @stack('js')
     </x-card>
 
 </x-app-layout>
