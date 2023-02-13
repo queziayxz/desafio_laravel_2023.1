@@ -58,9 +58,10 @@
         </select>
 
 @push('js')
-<script>
+    <script>
         function selectOption(id) {
             const select = document.querySelector("#"+id);
+            console.log(select);
             const children = select.children;
             for(let child of children) {
                 if(child.value === select.getAttribute("value")) {

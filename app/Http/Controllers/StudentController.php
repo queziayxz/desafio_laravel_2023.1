@@ -84,7 +84,18 @@ class StudentController extends Controller
      */
     public function update(Request $request, Student $student)
     {
-        //
+        $data = $request->all();
+
+        foreach(Student::validades as $chave => $validade) {
+            if($validade === $data['expiration_date']) {
+                $data['expiration_date'] = date('Y-m-d',strtotime("+1 $chave",strtotime($data['pay_day'])));
+            }
+        }
+
+        $student->update($data);
+
+        return redirect()->route('student.index');
+
     }
 
     /**

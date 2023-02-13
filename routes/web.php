@@ -45,7 +45,7 @@ Route::get('/alunos/create',[StudentController::class, 'create'])->name('student
 Route::post('/alunos',[StudentController::class, 'store'])->name('student.store');
 Route::get('/alunos/{student}',[StudentController::class, 'show'])->name('student.show');
 Route::get('/alunos/{student}/edit',[StudentController::class, 'edit'])->name('student.edit');
-Route::put('/alunos/{student}',[UserContStudentControllerroller::class, 'update'])->name('student.update');
+Route::put('/alunos/{student}',[StudentController::class, 'update'])->name('student.update');
 Route::delete('/alunos/{student}',[StudentController::class, 'destroy'])->name('student.destroy');
 
 require __DIR__.'/auth.php';
