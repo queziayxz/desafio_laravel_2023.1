@@ -70,7 +70,8 @@ class TrainingController extends Controller
      */
     public function edit(Training $training)
     {
-        //
+        $students = Student::all();
+        return view('admin.training.edit',compact('training','students'));
     }
 
     /**
@@ -82,7 +83,11 @@ class TrainingController extends Controller
      */
     public function update(Request $request, Training $training)
     {
-        //
+        $data = $request->all();
+        $training->update($data);
+
+        return redirect()->route('training.index');
+
     }
 
     /**
@@ -93,6 +98,9 @@ class TrainingController extends Controller
      */
     public function destroy(Training $training)
     {
-        //
+        $training->delete();
+
+        return redirect()->route('training.index');
+
     }
 }

@@ -39,7 +39,7 @@
 <!-- ALUNO QUE IRÁ FAZER A AULA -->
 <div>
     <x-input-label for="student_id" class="mt-2" :value="__('Aluno')" />
-    <select name="student_id" id="student_id" value="{{ old('student_id',$training->students->id ?? null) }}">
+    <select name="student_id" id="student_id" value="{{ old('student_id',$training->student->id ?? null) }}">
         <option>Selecione um aluno</option>
         @foreach($students as $student)]
             <option value="{{ $student->id }}">{{ $student->name }}</option>
@@ -49,4 +49,28 @@
 
 <!-- FUNCIOÁRIO QUE MARCOU A AULA -->
 <x-text-input id="user_id" class="block mt-1 w-full" hidden name="user_id" value="{{ Auth::user()->id }}" required />
+
+@push('js')
+
+        <script>
+                function ValorSelecionado(id)
+                {
+                        const select = document.querySelector('#'+id);
+                        const childrem = select.children;
+                        console.log(select.getAttribute('value'));
+                        for(let child of childrem){
+                                if(child.value == select.getAttribute("value")) {
+                                        child.setAttribute("selected", true);
+                                }
+                                
+                        }
+                }
+
+                window.onload = () => {
+                        ValorSelecionado('student_id')
+                }
+        </script>
+
+@endpush
+
     
