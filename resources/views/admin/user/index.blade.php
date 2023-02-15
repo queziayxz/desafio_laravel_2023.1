@@ -1,9 +1,8 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Lista de Funcionário') }}
-        </h2>
-    </x-slot>
+    
+    <x-header>
+        {{ __('Lista de Funcionários') }}
+    </x-header>
 
     <x-card>
         <a href="{{ route('user.create') }}">

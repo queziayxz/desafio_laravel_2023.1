@@ -1,7 +1,7 @@
 <x-app-layout>
 
     <x-header>
-        <h2>Aulas</h2>
+        {{ __('Alunos') }}
     </x-header>
 
     <x-card>
