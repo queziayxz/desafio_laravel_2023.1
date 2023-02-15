@@ -50,12 +50,12 @@ Route::put('/alunos/{student}',[StudentController::class, 'update'])->name('stud
 Route::delete('/alunos/{student}',[StudentController::class, 'destroy'])->name('student.destroy');
 
 //AULAS
-Route::get('/aula',[TrainingController::class, 'index'])->name('training.index');
-Route::get('/aula/create',[TrainingController::class, 'create'])->name('training.create');
-Route::post('/aula',[TrainingController::class, 'store'])->name('training.store');
-Route::get('/aula/{training}',[TrainingController::class, 'show'])->name('training.show');
-Route::get('/aula/{training}/edit',[TrainingController::class, 'edit'])->name('training.edit');
-Route::put('/aula/{training}',[TrainingController::class, 'update'])->name('training.update');
-Route::delete('/aula/{training}',[TrainingController::class, 'destroy'])->name('training.destroy');
+Route::get('/aulas',[TrainingController::class, 'index'])->name('training.index');
+Route::get('/aulas/create',[TrainingController::class, 'create'])->name('training.create');
+Route::post('/aulas',[TrainingController::class, 'store'])->name('training.store');
+Route::get('/aulas/{training}',[TrainingController::class, 'show'])->name('training.show');
+Route::get('/aulas/{training}/edit',[TrainingController::class, 'edit'])->name('training.edit');
+Route::put('/aulas/{training}',[TrainingController::class, 'update'])->name('training.update');
+Route::delete('/aulas/{training}',[TrainingController::class, 'destroy'])->name('training.destroy');
 
 require __DIR__.'/auth.php';
