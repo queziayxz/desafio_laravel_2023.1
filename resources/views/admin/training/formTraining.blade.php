@@ -47,13 +47,6 @@
     </select>
 </div>
 
-<!-- PROFESSOR QUE IRÁ DAR A AULA -->
-<div>
-    <x-input-label for="user_id" class="mt-2" :value="__('Professor')" />
-    <select name="user_id" id="user_id" value="{{ old('user_id',$training->users->id ?? null) }}">
-        <option>Selecione um aluno</option>
-        @foreach($users as $user)]
-            <option value="{{ $user->id }}">{{ $user->name }}</option>
-        @endforeach
-    </select>
-</div>
+<!-- FUNCIOÁRIO QUE MARCOU A AULA -->
+<x-text-input id="user_id" class="block mt-1 w-full" hidden name="user_id" value="{{ Auth::user()->id }}" required />
+    
