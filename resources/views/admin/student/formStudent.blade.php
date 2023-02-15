@@ -1,4 +1,4 @@
-
+@csrf
         <!-- NOME -->
         <div>
                 <x-input-label for="name" :value="__('Nome')" />

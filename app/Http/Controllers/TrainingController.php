@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Training;
 use App\Http\Controllers\Controller;
+use App\Models\Student;
+use App\Models\User;
 use Illuminate\Http\Request;
+use PHPUnit\Framework\MockObject\Builder\Stub;
 
 class TrainingController extends Controller
 {
@@ -26,7 +29,10 @@ class TrainingController extends Controller
      */
     public function create()
     {
-        //
+        $users = User::all();
+        $students = Student::all();
+        $training = new Training();
+        return view('admin.training.create',compact('training','students','users'));
     }
 
     /**
@@ -37,7 +43,11 @@ class TrainingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        Training::create($data);
+
+        return redirect()->route('training.index');
+
     }
 
     /**

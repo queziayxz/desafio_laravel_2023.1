@@ -13,7 +13,8 @@
                 <tr>
                     <th scope="col">Aluno</th>
                     <th scope="col">Funcionário</th>
-                    <th scope="col">Data/Hora</th>
+                    <th scope="col">Data</th>
+                    <th scope="col">Hora</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -22,7 +23,8 @@
                     <tr>
                         <td>{{ $training->student->name }}</td>
                         <td>{{ $training->user->name }}</td>
-                        <td>{{ date('d/m/Y',strtotime($training->start_date))}}</td>
+                        <td>{{ date("d/m/Y",strtotime(substr($training->start_date, 0, 10))) }}</td>
+                        <td>{{ substr($training->start_date, 11, 5) }}</td>
                         <td class="d-flex  justify-content-evenly">
                             <a href="{{ route('training.show',$training->id) }}">
                                 <x-secondary-button class="btn-secondary"><i class="fas fa-search"></i></x-secondary-button>
