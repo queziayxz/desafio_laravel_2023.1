@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreUserRequest;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -36,10 +37,17 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
-        $data = $request->all();
-        User::create($data);
+        //dd($request->validated());
+        $data = $request->validated();
+        $type = array('type' => 1);
+        //array_push($data,$type);
+        //var_dump($data);
+        $user = User::create($data);
+
+        $user->type = 1;
+        $user->save();
 
         return redirect()->route('user.index');
 
