@@ -34,4 +34,29 @@ class StoreUserRequest extends FormRequest
             'type' => 'nullable|max:1|integer'
         ];
     }
+
+    public function attributes()
+    {
+        return [
+            'name' => 'nome',
+            'email' => 'e-mail',
+            'birth_date' => 'data de nascimento',
+            'address' => 'endereço',
+            'phone_number' => 'número de telefone',
+            'phone_number' => 'número de telefone',
+            'work_time' => 'turno',
+            'password' => 'senha',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'required' => 'O campo :attribute é obrigatório',
+            'min' => 'O campo :attribute precisa ter no mínimo :min caractes',
+            'max' => 'O campo :attibute precisa ter no máximo :max caracteres',
+            'email' => 'O campo :attribute precisa ser um email',
+            'unique' => 'O campo :attribute já está cadastrado',
+        ];
+    }
 }
