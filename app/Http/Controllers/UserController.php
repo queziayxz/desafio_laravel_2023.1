@@ -40,11 +40,7 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
-        //dd($request->validated());
         $data = $request->validated();
-        $type = array('type' => 1);
-        //array_push($data,$type);
-        //var_dump($data);
         $user = User::create($data);
 
         $user->type = 1;

@@ -31,7 +31,7 @@
         <div>
                 <x-input-label for="phone_number" class="mt-2" :value="__('Telefone')" />
                 <x-text-input id="phone_number" class="block mt-1 w-full" type="tel" name="phone_number" :value="old('phone_number',$student->phone_number)" required autofocus />
-                <x-input-error :messages="$errors->get('address')" class="mt-2" />
+                <x-input-error :messages="$errors->get('phone_number')" class="mt-2" />
         </div>
 
         <!-- DATA DO CADASTRO -->
@@ -56,6 +56,7 @@
                 <option value="{{ $validade }}">{{ $validade }}</option>
             @endforeach
         </select>
+        <x-input-error :messages="$errors->get('expiration_date')" class="mt-2" />
 
 @push('js')
     <script>

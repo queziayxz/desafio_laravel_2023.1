@@ -26,9 +26,9 @@ class StoreUserRequest extends FormRequest
         return [
             'name' => 'required|string|min:2|max:254',
             'email' => 'required|email|min:2|max:254|unique:users,email',
-            'birth_date' => 'nullable|date',
-            'address' => 'nullable|string|min:2|max:254',
-            'phone_number' => 'nullable|celular_com_ddd',
+            'birth_date' => 'required|date',
+            'address' => 'required|string|min:2|max:254',
+            'phone_number' => 'required|celular_com_ddd',
             'work_time' => 'required|string',
             'password' => 'required|min:6|max:20',
             'type' => 'nullable|max:1|integer'
@@ -42,7 +42,6 @@ class StoreUserRequest extends FormRequest
             'email' => 'e-mail',
             'birth_date' => 'data de nascimento',
             'address' => 'endereço',
-            'phone_number' => 'número de telefone',
             'phone_number' => 'número de telefone',
             'work_time' => 'turno',
             'password' => 'senha',
