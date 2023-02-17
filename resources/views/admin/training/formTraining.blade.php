@@ -34,6 +34,7 @@
 <div>
     <x-input-label for="cost" class="mt-2" :value="__('Valor da Aula')" />
     <x-text-input id="cost" class="block mt-1 w-full" type="number" name="cost" :value="old('cost',$training->cost)" required autofocus />
+    <x-input-error :messages="$errors->get('cost')" class="mt-2" />
 </div>
 
 <!-- ALUNO QUE IRÁ FAZER A AULA -->
@@ -45,6 +46,7 @@
             <option value="{{ $student->id }}">{{ $student->name }}</option>
         @endforeach
     </select>
+    <x-input-error :messages="$errors->get('student_id')" class="mt-2" />
 </div>
 
 <!-- FUNCIOÁRIO QUE MARCOU A AULA -->

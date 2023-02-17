@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Training;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreTrainingRequest;
+use App\Http\Requests\UpdateTrainingRequest;
 use App\Models\Student;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -41,10 +43,10 @@ class TrainingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreTrainingRequest $request)
     {
         //dd($request->all());
-        $data = $request->all();
+        $data = $request->validated();
         Training::create($data);
 
         return redirect()->route('training.index');
@@ -81,9 +83,9 @@ class TrainingController extends Controller
      * @param  \App\Models\Training  $training
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Training $training)
+    public function update(UpdateTrainingRequest $request, Training $training)
     {
-        $data = $request->all();
+        $data = $request->validated();
         $training->update($data);
 
         return redirect()->route('training.index');
