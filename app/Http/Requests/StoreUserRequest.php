@@ -54,7 +54,7 @@ class StoreUserRequest extends FormRequest
         return [
             'required' => 'O campo :attribute é obrigatório',
             'min' => 'O campo :attribute precisa ter no mínimo :min caractes',
-            'max' => 'O campo :attibute precisa ter no máximo :max caracteres',
+            'max' => 'O campo :attribute precisa ter no máximo :max caracteres',
             'email' => 'O campo :attribute precisa ser um email',
             'unique' => 'O campo :attribute já está cadastrado',
         ];

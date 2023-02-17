@@ -1,11 +1,4 @@
-@if($errors->any())
-        <div class="alert alert_danger alert-dismissible">
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                <strong>
-                        {!! implode('<br/>',$errors->all('<span>:message</span>')) !!}
-                </strong>
-        </div>
-@endif
+
         <!-- NOME -->
         <div>
                 <x-input-label for="name" :value="__('Nome')" />
@@ -37,8 +30,8 @@
         <!-- NÚMERO DE TELEFONA -->
         <div>
                 <x-input-label for="phone_number" class="mt-2" :value="__('Telefone')" />
-                <x-text-input id="phone_number" class="block mt-1 w-full" type="tel" name="phone_number" :value="old('phone_number',$user->phone_number)" required autofocus />
-                <x-input-error :messages="$errors->get('address')" class="mt-2" />
+                <x-text-input id="phone_number" class="block mt-1 w-full" type="tel" name="phone_number" placeholder="(99)99999-9999" :value="old('phone_number',$user->phone_number)" required autofocus />
+                <x-input-error :messages="$errors->get('phone_number')" class="mt-2" />
         </div>
 
         <!-- TURNO EM QUE TRABALHA -->
@@ -50,6 +43,7 @@
                         <option value="{{ $turno }}">{{ $turno }}</option>
                 @endforeach
                 </select>
+                <x-input-error :messages="$errors->get('work_time')" class="mt-2" />
         </div>
 
         <!-- SENHA -->
