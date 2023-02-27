@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Date;
 
 class StoreTrainingRequest extends FormRequest
 {
@@ -48,7 +49,6 @@ class StoreTrainingRequest extends FormRequest
         return [
             'required' => 'O campo :attribute é obrigatório',
             'date_format' => 'O campo :attribute precisa estar no formato Y-m-d H:i:s',
-            'after' => 'O campo :attribute precisa ser depois da ::after',
             'unique' => 'Este horário já está agendado para outro aluno',
             'numeric' => 'O campo :attribute precisa ser um número',
             'exists' => 'O campo :attribute não existe',

@@ -158,9 +158,12 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'start_date' => [
+            'after' => 'O campo :attribute precisa ser depois do dia ' . \Carbon\Carbon::now()->format('d/m/Y'),
         ],
+        'end_date' => [
+            'after' => 'O campo :attribute precisa ser depois do horário inicial',
+        ]
     ],
 
     /*
