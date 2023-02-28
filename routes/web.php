@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmailController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TrainingController;
@@ -69,5 +70,8 @@ Route::get('/visualizando-email',function() {
 
     return new \App\Mail\Evento($user,$content);
 });
+
+Route::get('/email/create',[EmailController::class,'create'])->name('email.create');
+Route::post('/email',[EmailController::class,'store'])->name('email.store');
 
 require __DIR__.'/auth.php';

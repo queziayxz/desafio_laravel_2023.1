@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
+class EmailController extends Controller
+{
+    public function create()
+    {
+        return view('admin.email.create');
+    }
+
+    public function store(Request $request)
+    {
+        dd($request->all());
+    }
+}

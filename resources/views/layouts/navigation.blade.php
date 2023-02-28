@@ -21,8 +21,11 @@
                     <x-nav-link :href="route('student.index')" :active="request()->routeIs('student.index')">
                         {{ __('Alunos') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('training.index')" :active="request()->routeIs('student.index')">
+                    <x-nav-link :href="route('training.index')" :active="request()->routeIs('training.index')">
                         {{ __('Treinos') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('email.create')" :active="request()->routeIs('email.create')">
+                        {{ __('Enviar Email') }}
                     </x-nav-link>
                 </div>
             </div>
