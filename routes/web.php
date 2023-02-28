@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\UserController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,5 +58,16 @@ Route::get('/aulas/{training}',[TrainingController::class, 'show'])->name('train
 Route::get('/aulas/{training}/edit',[TrainingController::class, 'edit'])->name('training.edit');
 Route::put('/aulas/{training}',[TrainingController::class, 'update'])->name('training.update');
 Route::delete('/aulas/{training}',[TrainingController::class, 'destroy'])->name('training.destroy');
+
+//EMAIL
+Route::get('/visualizando-email',function() {
+    $user = new User();
+    $user->name = 'Quezia';
+    $user->email = 'quezia@gmail.com';
+    $user->password = '12345678';
+    $content = 'Novo Evento na nossa academia irá acontecer nos dias 12 e 13 de março';
+
+    return new \App\Mail\Evento($user,$content);
+});
 
 require __DIR__.'/auth.php';
