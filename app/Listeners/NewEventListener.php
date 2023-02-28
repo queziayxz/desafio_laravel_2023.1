@@ -2,12 +2,12 @@
 
 namespace App\Listeners;
 
-use App\Events\NovoEvento;
+use App\Events\NewEvent;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\Mail;
 
-class EnviarEmailNovoEvento
+class NewEventListener
 {
     /**
      * Create the event listener.
@@ -22,15 +22,15 @@ class EnviarEmailNovoEvento
     /**
      * Handle the event.
      *
-     * @param  \App\Events\NovoEvento  $event
+     * @param  \App\Events\NewEvent  $event
      * @return void
      */
-    public function handle(NovoEvento $event)
+    public function handle(NewEvent $event)
     {
         $users = \App\Models\User::all();
 
         foreach($users as $user) {
-            $email = new \App\Mail\Evento($user,$event->content);
+            $email = new \App\Mail\NewEventMail($user,$event->content);
             $where = now()->addSecond(15);
             Mail::to($user)->later($where,$email);
         }

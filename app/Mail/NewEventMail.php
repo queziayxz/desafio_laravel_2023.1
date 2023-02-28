@@ -2,15 +2,15 @@
 
 namespace App\Mail;
 
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
-use Illuminate\Mail\Mailables\Address;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class Evento extends Mailable
+class NewEventMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -22,7 +22,7 @@ class Evento extends Mailable
      *
      * @return void
      */
-    public function __construct(\App\Models\User $user, string $content)
+    public function __construct(User $user, string $content)
     {
         $this->user = $user;
         $this->content = $content;
@@ -48,7 +48,7 @@ class Evento extends Mailable
     public function content()
     {
         return new Content(
-            markdown: 'mail.evento.NovoEvento',
+            markdown: 'mail.event.new-event',
             with: [
                 'user' => $this->user,
                 'content' => $this->content,

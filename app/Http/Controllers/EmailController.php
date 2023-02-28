@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\NewEvent;
+use App\Events\NovoEvento;
 use App\Http\Controllers\Controller;
 use App\Mail\Evento;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class EmailController extends Controller
 {
@@ -15,7 +18,9 @@ class EmailController extends Controller
 
     public function store(Request $request)
     {
-        event($request->content);
+
+        event(new NewEvent($request->content));
         
+        return redirect()->route('user.index');
     }
 }
