@@ -14,7 +14,7 @@ class AutomaticMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    private $student;
+    public $student;
 
     /**
      * Create a new message instance.
@@ -23,7 +23,7 @@ class AutomaticMail extends Mailable
      */
     public function __construct(Student $student)
     {
-        $this->student;
+        $this->student = $student;
     }
 
     /**

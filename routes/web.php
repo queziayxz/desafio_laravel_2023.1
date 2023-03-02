@@ -5,7 +5,9 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\UserController;
+use App\Models\Student;
 use App\Models\User;
+use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -60,17 +62,18 @@ Route::get('/aulas/{training}/edit',[TrainingController::class, 'edit'])->name('
 Route::put('/aulas/{training}',[TrainingController::class, 'update'])->name('training.update');
 Route::delete('/aulas/{training}',[TrainingController::class, 'destroy'])->name('training.destroy');
 
-//EMAIL
+//TESTE EMAIL
 Route::get('/visualizando-email',function() {
-    $user = new User();
-    $user->name = 'Quezia';
-    $user->email = 'quezia@gmail.com';
-    $user->password = '12345678';
-    $content = 'Novo Evento na nossa academia irá acontecer nos dias 12 e 13 de março';
+    $data =  date('Y-m-d');
+    $student = new Student();
+    $student->name = 'Quezia';
+    $student->email = 'quezia@gmail.com';
+    $student->expiration_date = $data;
 
-    return new \App\Mail\Evento($user,$content);
+    return new \App\Mail\AutomaticMail($student);
 });
 
+//ENVIANDO EMAIL
 Route::get('/email/create',[EmailController::class,'create'])->name('email.create');
 Route::post('/email',[EmailController::class,'store'])->name('email.store');
 
