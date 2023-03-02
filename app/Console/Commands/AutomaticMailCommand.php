@@ -11,14 +11,14 @@ class AutomaticMailCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'send:AutomaticMailCommand';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Envia e-mail automaticamente';
 
     /**
      * Execute the console command.
