@@ -27,6 +27,6 @@ class AutomaticMailCommand extends Command
      */
     public function handle()
     {
-        return Command::SUCCESS;
+        \App\Jobs\AutomaticMailJob::dispatch('testando envio automatico de email');
     }
 }

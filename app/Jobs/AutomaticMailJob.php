@@ -2,12 +2,16 @@
 
 namespace App\Jobs;
 
+use App\Models\User;
+use DateTime;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class AutomaticMailJob implements ShouldQueue
 {
@@ -20,7 +24,7 @@ class AutomaticMailJob implements ShouldQueue
      */
     public function __construct()
     {
-        //
+
     }
 
     /**
@@ -30,6 +34,12 @@ class AutomaticMailJob implements ShouldQueue
      */
     public function handle()
     {
-        //
+        $students = DB::select('SELECT * FROM students WHERE name = :name', ['name' => 'Nicolas Runolfsdottir']);
+
+        foreach($students as $student) {
+            $email = new \App\Mail\AutomaticMail($student);
+            $where = now()->addSecond(15);
+            Mail::to($student)->later($where,$email);
+        }
     }
 }
