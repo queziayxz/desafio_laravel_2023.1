@@ -17,7 +17,7 @@ class UserPolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return in_array($user->type,[0]);
     }
 
     /**
@@ -29,7 +29,8 @@ class UserPolicy
      */
     public function view(User $user, User $model)
     {
-        //
+        //return in_array($user->type,[1]);
+        return true;
     }
 
     /**
@@ -40,7 +41,7 @@ class UserPolicy
      */
     public function create(User $user)
     {
-        //
+        return $user->type == 0;
     }
 
     /**
@@ -64,7 +65,7 @@ class UserPolicy
      */
     public function delete(User $user, User $model)
     {
-        //
+        return !in_array($model->type,[0]);
     }
 
     /**
@@ -88,6 +89,6 @@ class UserPolicy
      */
     public function forceDelete(User $user, User $model)
     {
-        //
+        return in_array($user->type,[0]);
     }
 }
