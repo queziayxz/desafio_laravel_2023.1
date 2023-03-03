@@ -36,8 +36,6 @@ class AutomaticMailJob implements ShouldQueue
     {
         $students = Student::all();
 
-        Log::info('Data de Amanhã: ' . date('d/m/Y',strtotime("+1 day")));
-
         foreach($students as $student) {
             if($student->expiration_date == date('Y-m-d',strtotime("+1 day"))) {
                 $email = new \App\Mail\AutomaticMail($student);
