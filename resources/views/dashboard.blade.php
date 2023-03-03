@@ -7,25 +7,25 @@
     </x-slot>
 
     <x-card>
-        <div class="d-flex flex-column">
+        <div class="d-flex flex-row justify-content-around">
             <div class="card" style="width: 18rem;">
-                <img src="{!! asset('/public/images/funcionarios.jpg') !!}" class="card-img-top" alt="Imagem dos funcioários">
+                <img src="/img/funcionarios.jpg" class="card-img-top" alt="Imagem dos funcioários">
     
-                <div class="card-body">
+                <div class="card-body d-flex justify-content-center">
                     <a href="{{ route('user.index') }}" class="btn btn-primary">Vizualizar Funcioários</a>
                 </div>
             </div>
             <div class="card" style="width: 18rem;">
-                <img src="../img/funcionarios.jpg" class="card-img-top" alt="Imagem dos alunos">
+                <img src="../img/alunos.jpg" class="card-img-top" alt="Imagem dos alunos">
     
-                <div class="card-body">
+                <div class="card-body d-flex justify-content-center">
                     <a href="{{ route('student.index') }}" class="btn btn-primary">Vizualizar Alunos</a>
                 </div>
             </div>
             <div class="card" style="width: 18rem;">
-                <img src="../img/funcionarios.jpg" class="card-img-top" alt="Imagem das aulas">
+                <img src="../img/treinos.jpg" class="card-img-top" alt="Imagem das aulas">
     
-                <div class="card-body">
+                <div class="card-body d-flex justify-content-center">
                     <a href="{{ route('user.index') }}" class="btn btn-primary">Vizualizar Aulas</a>
                 </div>
             </div>

@@ -17,18 +17,18 @@
                     <th scope="col">Email</th>
                     <th scope="col">Turno</th>
                     <th scope="col">Tipo</th>
-                    <th scope="col"></th>
+                    <th ></th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($users as $user)
                     @if($user->type == 1)
                         <tr>
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->email }}</td>
+                            <td scope="row">{{ $user->name }}</td>
+                            <td class="mail">{{ $user->email }}</td>
                             <td>{{ $user->work_time ?? "" }}</td>
                             <td>{{ $user->type }}</td>
-                            <td class="d-flex  justify-content-evenly">
+                            <td class="btn-acoes">
                                 <a href="{{ route('user.show',$user->id) }}">
                                     <x-secondary-button class="btn-secondary"><i class="fas fa-search"></i></x-secondary-button>
                                 </a>
