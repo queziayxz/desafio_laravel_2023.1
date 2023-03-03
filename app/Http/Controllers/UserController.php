@@ -28,6 +28,10 @@ class UserController extends Controller
      */
     public function create()
     {
+        if(!$this->authorize('create')) {
+            return response([], 403);
+        }
+
         $user = new User();
         return view('admin.user.create', compact('user'));
     }

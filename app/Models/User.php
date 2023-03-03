@@ -59,6 +59,8 @@ class User extends Authenticatable
         'noite' => 'Noite',
     ];
 
+    const admin_types = [0];
+
     public function trainings()
     {
         return $this->hasMany(Training::class);

@@ -25,7 +25,7 @@
                         {{ __('Treinos') }}
                     </x-nav-link>
 
-                    @can('createMail')
+                    @can('create')
                         <x-nav-link :href="route('email.create')" :active="request()->routeIs('email.create')">
                             {{ __('Enviar Email') }}
                         </x-nav-link>
@@ -84,6 +84,21 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('user.index')" :active="request()->routeIs('user.index')">
+                {{ __('Funcionários') }}
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('student.index')" :active="request()->routeIs('student.index')">
+                {{ __('Alunos') }}
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('training.index')" :active="request()->routeIs('training.index')">
+                {{ __('Treinos') }}
             </x-responsive-nav-link>
         </div>
 

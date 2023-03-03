@@ -9,6 +9,15 @@ class UserPolicy
 {
     use HandlesAuthorization;
 
+    public function before(User $user): bool|null
+{
+    if ($user->type == 0) {
+        return true;
+    }
+ 
+    return null;
+}
+
     /**
      * Determine whether the user can view any models.
      *
@@ -17,7 +26,7 @@ class UserPolicy
      */
     public function viewAny(User $user)
     {
-        return in_array($user->type,[0]);
+    
     }
 
     /**
@@ -29,8 +38,7 @@ class UserPolicy
      */
     public function view(User $user, User $model)
     {
-        //return in_array($user->type,[1]);
-        return true;
+
     }
 
     /**
@@ -41,7 +49,7 @@ class UserPolicy
      */
     public function create(User $user)
     {
-        return !in_array($user->type,[0]);
+        return $user->type == 1;
     }
 
     /**
@@ -65,7 +73,7 @@ class UserPolicy
      */
     public function delete(User $user, User $model)
     {
-        return !in_array($model->type,[0]);
+        return $user->type == 0 && !in_array($model->type,User::admin_types);
     }
 
     /**
@@ -89,6 +97,6 @@ class UserPolicy
      */
     public function forceDelete(User $user, User $model)
     {
-        return $user->type == 0;
+
     }
 }
