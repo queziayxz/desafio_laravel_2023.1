@@ -41,7 +41,7 @@ class UserPolicy
      */
     public function create(User $user)
     {
-        return $user->type == 0;
+        return !in_array($user->type,[0]);
     }
 
     /**
@@ -89,6 +89,6 @@ class UserPolicy
      */
     public function forceDelete(User $user, User $model)
     {
-        return in_array($user->type,[0]);
+        return $user->type == 0;
     }
 }
