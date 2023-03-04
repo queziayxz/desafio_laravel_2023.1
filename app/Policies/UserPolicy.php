@@ -9,14 +9,6 @@ class UserPolicy
 {
     use HandlesAuthorization;
 
-    public function before(User $user): bool|null
-{
-    if ($user->type == 0) {
-        return true;
-    }
- 
-    return null;
-}
 
     /**
      * Determine whether the user can view any models.
@@ -49,7 +41,7 @@ class UserPolicy
      */
     public function create(User $user)
     {
-        return $user->type == 1;
+        return $user->type == 0;
     }
 
     /**
