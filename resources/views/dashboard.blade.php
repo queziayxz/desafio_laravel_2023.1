@@ -26,7 +26,7 @@
                 <img src="../img/treinos.jpg" class="card-img-top" alt="Imagem das aulas">
     
                 <div class="card-body d-flex justify-content-center">
-                    <a href="{{ route('user.index') }}" class="btn btn-primary">Vizualizar Aulas</a>
+                    <a href="{{ route('training.index') }}" class="btn btn-primary">Vizualizar Aulas</a>
                 </div>
             </div>
         </div>
