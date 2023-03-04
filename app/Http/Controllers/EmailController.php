@@ -13,6 +13,11 @@ class EmailController extends Controller
 {
     public function create()
     {
+
+        if(!$this->authorize('create')) {
+            return response([], 403);
+        }
+
         return view('admin.email.create');
     }
 
