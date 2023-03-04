@@ -15,7 +15,6 @@
                 <tr>
                     <th scope="col">Nome</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Data de Cadastro</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -23,9 +22,8 @@
                 @foreach($students as $student)
                     <tr>
                         <td>{{ $student->name }}</td>
-                        <td>{{ $student->email }}</td>
-                        <td>{{ date('d/m/Y',strtotime($student->register_date)) }}</td>
-                        <td class="d-flex  justify-content-evenly">
+                        <td class="text-break">{{ $student->email }}</td>
+                        <td class="d-flex flex-wrap justify-content-evenly">
                             <a href="{{ route('student.show',$student->id) }}">
                                 <x-secondary-button class="btn-secondary"><i class="fas fa-search"></i></x-secondary-button>
                             </a>

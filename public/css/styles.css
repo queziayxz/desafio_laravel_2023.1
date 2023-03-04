@@ -2,10 +2,6 @@ td {
     font-size: .8rem;
 }
 
-.link-acoes {
-    /* width: 1rem; */
-}
-
 @media (min-width: 480px) {
     td {
         font-size: 1rem;
