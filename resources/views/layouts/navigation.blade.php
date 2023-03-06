@@ -25,7 +25,7 @@
                         {{ __('Treinos') }}
                     </x-nav-link>
 
-                    @can('create',Auth::user())
+                    @can('create',auth()->user())
                         <x-nav-link :href="route('email.create')" :active="request()->routeIs('email.create')">
                             {{ __('Enviar Email') }}
                         </x-nav-link>

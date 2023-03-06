@@ -27,12 +27,12 @@ class NewEventListener
      */
     public function handle(NewEvent $event)
     {
-        $users = \App\Models\User::all();
+        $students = \App\Models\Student::all();
 
-        foreach($users as $user) {
-            $email = new \App\Mail\NewEventMail($user,$event->content);
+        foreach($students as $student) {
+            $email = new \App\Mail\NewEventMail($student,$event->content);
             $where = now()->addSecond(15);
-            Mail::to($user)->later($where,$email);
+            Mail::to($student)->later($where,$email);
         }
     }
 }

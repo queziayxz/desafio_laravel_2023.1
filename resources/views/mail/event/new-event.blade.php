@@ -1,6 +1,6 @@
 <x-mail::message>
 
-    # Olá, {{ $user->name }}
+    # Olá, {{ $student->name }}
     {{ $content }}
 
 </x-mail::message>

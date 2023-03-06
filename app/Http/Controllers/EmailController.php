@@ -14,7 +14,7 @@ class EmailController extends Controller
     public function create()
     {
 
-        if(!$this->authorize('create')) {
+        if(!$this->authorize('create',auth()->user())) {
             return response([], 403);
         }
 
