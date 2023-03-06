@@ -24,6 +24,35 @@
         </div>
 
         <div>
+            <x-input-label for="birth_date" :value="__('Data de Nascimento')" />
+            <x-text-input id="birth_date" name="birth_date" type="date" class="mt-1 block w-full" :value="old('birth_date', $user->birth_date)" required autofocus autocomplete="birth_date" />
+            <x-input-error class="mt-2" :messages="$errors->get('birth_date')" />
+        </div>
+
+        <div>
+            <x-input-label for="address" :value="__('Endereço')" />
+            <x-text-input id="address" name="address" type="text" class="mt-1 block w-full" :value="old('address', $user->address)" required autofocus autocomplete="address" />
+            <x-input-error class="mt-2" :messages="$errors->get('address')" />
+        </div>
+
+        <div>
+            <x-input-label for="phone_number" :value="__('Telefone')" />
+            <x-text-input id="phone_number" name="phone_number" type="text" class="mt-1 block w-full" placeholder="(99)99999-9999" :value="old('phone_number', $user->phone_number)" required autofocus autocomplete="phone_number" />
+            <x-input-error class="mt-2" :messages="$errors->get('phone_number')" />
+        </div>
+
+        <div>
+            <x-input-label for="work_time" class="mt-2" :value="__('Turno do Funcionário')" />
+            <select name="work_time" id="work_time" value="{{ old('work_time', $user->work_time ?? null) }}">
+            <option value="">Selecione um Turno</option>
+            @foreach(App\Models\User::turnos as $turno)
+                    <option value="{{ $turno }}">{{ $turno }}</option>
+            @endforeach
+            </select>
+            <x-input-error :messages="$errors->get('work_time')" class="mt-2" />
+        </div>
+
+        <div>
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="email" />
             <x-input-error class="mt-2" :messages="$errors->get('email')" />
@@ -62,3 +91,22 @@
         </div>
     </form>
 </section>
+
+<script>
+    function ValorSelecionado(id)
+    {
+        const select = document.querySelector('#'+id);
+        const childrem = select.children;
+        console.log(select.getAttribute('value'));
+        for(let child of childrem){
+            if(child.value == select.getAttribute("value")) {
+                child.setAttribute("selected", true);
+            }
+                
+        }
+    }
+
+    window.onload = () => {
+            ValorSelecionado('work_time')
+    }
+</script>
