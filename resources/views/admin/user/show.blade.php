@@ -6,8 +6,12 @@
     </x-slot>
 
     <x-card>
-        @include('admin.user.formUser')
-        @stack('js')
+        <p><strong>Nome: </strong>{{ $user->name }}</p>
+        <p><strong>E-mail: </strong>{{ $user->email }}</p>
+        <p><strong>Data de Nascimento: </strong>{{ $user->birth_date }}</p>
+        <p><strong>Endereço: </strong>{{ $user->address }}</p>
+        <p><strong>Telefone: </strong>{{ $user->phone_number }}</p>
+        <p><strong>Turno: </strong>{{ $user->work_time }}</p>
     </x-card>
 
 </x-app-layout>
