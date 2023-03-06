@@ -57,22 +57,3 @@
             @endforeach
         </select>
         <x-input-error :messages="$errors->get('expiration_date')" class="mt-2" />
-
-@push('js')
-    <script>
-        function selectOption(id) {
-            const select = document.querySelector("#"+id);
-            console.log(select);
-            const children = select.children;
-            for(let child of children) {
-                if(child.value === select.getAttribute("value")) {
-                    child.setAttribute("selected", true);
-                }
-            }
-        }
-
-        window.onload = () => {
-            selectOption("expiration_date");
-        }
-    </script>
-@endpush
