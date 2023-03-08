@@ -1,10 +1,10 @@
 <x-app-layout>
 
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+    <x-header>
+        <a href="{{ route('student.index') }}">
             {{ __('Cadastrando Aluno') }}
-        </h2>
-    </x-slot>
+        </a>
+    </x-header>
 
     <x-form action="{{ route('student.store') }}" method="POST">
 

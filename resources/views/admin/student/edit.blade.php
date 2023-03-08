@@ -1,7 +1,9 @@
 <x-app-layout>
 
     <x-header>
-        {{ __('Editando Aluno') }}
+        <a href="{{ route('student.index') }}">
+            {{ __('Editando Aluno') }}
+        </a>
     </x-header>
 
     <x-card>
