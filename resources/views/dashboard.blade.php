@@ -14,9 +14,14 @@
             <div class="card mb-2" style="width: 18rem;">
                 <a href="{{ route('training.index') }}" class="btn btn-primary">Vizualizar Aulas</a>
             </div>
-            <div class="card" style="width: 18rem;">
+            <div class="card mb-2" style="width: 18rem;">
                 <a href="{{ route('profile.edit') }}" class="btn btn-primary">Visualizar Perfil</a>
             </div>
+            @can('create',auth()->user())
+                <div class="card" style="width: 18rem;">
+                    <a href="{{ route('email.create') }}" class="btn btn-primary">Enviar E-mail</a>
+                </div>
+            @endcan
         </div>
     </x-card>
 
