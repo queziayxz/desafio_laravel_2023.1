@@ -21,7 +21,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('send:AutomaticMailCommand')->dailyAt('10:17');
+        $schedule->command('send:AutomaticMailCommand')->dailyAt('08:00');
     }
 
     protected function scheduleTimezone(): DateTimeZone|string|null
