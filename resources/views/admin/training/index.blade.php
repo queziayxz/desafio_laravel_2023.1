@@ -1,7 +1,7 @@
 <x-app-layout>
 
     <x-header>
-        {{ __('Treinos') }}
+        {{ __('Lista dos Treinos Agendados') }}
     </x-header>
 
     <x-card>

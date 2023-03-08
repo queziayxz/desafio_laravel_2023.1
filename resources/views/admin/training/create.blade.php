@@ -1,7 +1,9 @@
 <x-app-layout>
 
     <x-header>
-        <h2>Agendando Aula</h2>
+        <a href="{{ route('training.index') }}">
+            {{ __('Agendando Treino') }}
+        </a>
     </x-header>
 
     <x-card>
